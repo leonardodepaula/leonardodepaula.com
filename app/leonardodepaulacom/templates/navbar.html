@@ -6,10 +6,7 @@
       <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars" style="font-size: 25px;"></i></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a href="../../index3.html" class="nav-link" style="font-size: 20px;">Página inicial</a>
-    </li>
-    <li class="nav-item d-none d-sm-inline-block">
-      <a href="#" class="nav-link" style="font-size: 20px;">Contato</a>
+      <a href="{% url 'core:index' %}" class="nav-link h2">Leonardo de Paula</a>
     </li>
   </ul>
 
@@ -37,7 +34,16 @@
       </div>
     </li>
     <li class="nav-item">
-      <button type="button" class="btn btn-sm btn-default mr-2">Dark mode</button>
+      <form id="dark-mode-form" method="POST" action="{% url 'core:dark-mode' %}">
+      {% csrf_token %}
+      {% if request.session.dark_mode %}
+      <input name="dark-mode" value="0" hidden></input>
+      <button type="submit" form="dark-mode-form" class="btn btn-sm btn-default mr-2">Light Mode</button>
+      {% else %}
+      <input name="dark-mode" value="1" hidden></input>
+      <button type="submit" form="dark-mode-form" class="btn btn-sm btn-default mr-2">Dark Mode</button>
+      {% endif %}
+      </form>
     </li>
     <li class="nav-item">
       <button type="button" class="btn btn-sm btn-default mr-2">English</button>
