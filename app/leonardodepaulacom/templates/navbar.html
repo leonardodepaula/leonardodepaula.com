@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-dark" style="height: 80px;">
+<nav class="main-header navbar navbar-expand navbar-dark" style="height: 85px;">
   <!-- Left navbar links -->
   <ul class="navbar-nav align-items-lg-center">
     <li class="nav-item">
@@ -37,16 +37,11 @@
       <form id="dark-mode-form" method="POST" action="{% url 'core:dark-mode' %}">
       {% csrf_token %}
       {% if request.session.dark_mode %}
-      <input name="dark-mode" value="0" hidden></input>
       <button type="submit" form="dark-mode-form" class="btn btn-sm btn-default mr-2">Light Mode</button>
       {% else %}
-      <input name="dark-mode" value="1" hidden></input>
       <button type="submit" form="dark-mode-form" class="btn btn-sm btn-default mr-2">Dark Mode</button>
       {% endif %}
       </form>
-    </li>
-    <li class="nav-item">
-      <button type="button" class="btn btn-sm btn-default mr-2">English</button>
     </li>
   </ul>
 </nav>

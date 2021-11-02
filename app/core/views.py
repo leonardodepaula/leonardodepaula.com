@@ -1,7 +1,10 @@
 # Django
-from django.views.generic  import TemplateView, View
+from django.views.generic  import View, TemplateView, CreateView
 from django.http import HttpResponseRedirect
 from django.core.exceptions import PermissionDenied
+
+# Models
+from .models import *
 
 ###############
 #### INDEX ####
@@ -11,9 +14,26 @@ class IndexView(TemplateView):
 
     template_name = "core/index.html"
 
-###########################
-#### Session Variables ####
-###########################
+###################
+#### Biography ####
+###################
+
+class BiographyView(TemplateView):
+
+    template_name = "core/biography.html"
+
+#################
+#### Contact ####
+#################
+
+class ContactCreateView(CreateView):
+
+    template_name = "core/biography.html"
+    model = Contato
+
+###################
+#### Dark Mode ####
+###################
 
 class DarkModeView(View):
 
@@ -23,17 +43,11 @@ class DarkModeView(View):
 
     def post(self, request, *args, **kwargs):
 
-        try:
+        current_dark_mode_state = request.session.get('dark_mode')
 
-            dark_mode = bool(int(request.POST.get('dark-mode')))
-
-            if dark_mode:
-                request.session['dark_mode'] = True
-            else:
-                request.session['dark_mode'] = False
-        
-        except:
-
-            pass
+        if current_dark_mode_state:
+            request.session['dark_mode'] = False
+        else:
+            request.session['dark_mode'] = True
             
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))

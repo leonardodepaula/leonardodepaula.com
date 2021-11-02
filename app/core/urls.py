@@ -8,8 +8,9 @@ app_name = 'core'
 
 urlpatterns = [
     
-    # Index
+    # Rotas
     path('',  IndexView.as_view(), name='index'),
+    path('biography/',  BiographyView.as_view(), name='biography'),
 
     # Dark Mode
     path('dark-mode/',  DarkModeView.as_view(), name='dark-mode'),

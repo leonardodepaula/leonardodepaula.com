@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Margins -->
+  <div class="ml-auto mr-auto" style="max-width: 1800px;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1></h1>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{% url 'core:index' %}">Home</a></li>
+              <li class="breadcrumb-item active">Biografia</li>
+            </ol>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content ml-3 mr-3">
+
+      <div class="row">
+        <div class="col-12">
+
+          <!-- Profile Image -->
+          <div class="card card-primary card-outline">
+            <div class="card-body box-profile">
+              <div class="text-center">
+                {% if request.session.dark_mode %}
+                <img class="img-fluid img-circle"
+                {% else %}
+                <img class="img-fluid img-circle"
+                {% endif %}
+                      src="{% static '/img/leonardodepaula.jpg' %}"
+                      alt="Leonardo"
+                      width="160" height="80">
+              </div>
+
+              <h2 class="text-center mt-3">Leonardo de Paula</h2>
+
+              <hr>
+
+              <div class="ml-2">
+                <div class="row">
+                  <strong><i class="fas fa-book mr-1"></i> Educação</strong>
+                </div>
+                <div class="row mt-2">
+                  <span class="text-muted">
+                    Graduação em Direito | Pontifícia Universidade Católica de Goiás (PUC-GO)
+                    <br>Pós-graduação em Direito Tributário | Escola Nacional de Administração Pública (Enap)
+                  </span>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="ml-2">
+                <div class="row">
+                  <strong><i class="fas fa-briefcase mr-1"></i> Trabalho</strong>
+                </div>
+                <div class="row mt-2">
+                  <span class="text-muted">
+                    Auditor-Fiscal da Receita Federal
+                  </span>
+                </div>
+              </div>
+
+              <hr>
+
+              <div class="ml-2">
+                <div class="row">
+                  <strong><i class="fas fa-lightbulb mr-1"></i> Interesses</strong>
+                </div>
+                <div class="row mt-2">
+                  <span class="text-muted">
+                    Python | Django
+                    <br>Bancos de dados | SQL | MariaDB | PostgreSQL
+                    <br>Containers | Docker
+                    <br>Data Science | Machine Learning | Numpy | Pandas | Scikit-Learn
+                    <br>Direito Tributário | Conformidade tributária
+                    <br>Linux | Fedora | Red Hat downstream distributions | Gnome
+                  </span>
+                </div>
+              </div>
+
+              <hr>
+
+              <strong><i class="fas fa-network-wired mr-1"></i> Perfis</strong>
+              <br>
+
+              <a href="https://github.com/leonardodepaula" target="_blank">
+                <button class="btn btn-default mt-3 p-3" type="button">
+                  <i class="fab fa-github fa-4x"></i>
+                  <br>
+                  <p class="h4 mt-2 mb-0">GitHub</p>
+                </button>
+              </a>
+
+              <a href="https://www.kaggle.com/leonardodepaula" target="_blank">
+                <button class="btn btn-default mt-3 p-3 ml-3" type="button">
+                  <i class="fab fa-kaggle fa-4x"></i>
+                  <br>
+                  <p class="h4 mt-2 mb-0">Kaggle</p>
+                </button>
+              </a>
+
+              <a href="www.linkedin.com/in/leonardodepaulaliebscher" target="_blank">
+                <button class="btn btn-default mt-3 p-3 ml-3" type="button">
+                  <i class="fab fa-linkedin fa-4x"></i>
+                  <br>
+                  <p class="h4 mt-2 mb-0">LinkedIn</p>
+                </button>
+              </a>
+
+            </div>
+            <!-- /.card-body -->
+          </div>
+          <!-- /.card -->
+
+        </div>
+      </div>
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- Margins -->
+</div>
+<!-- /.content-wrapper -->
+
+{% endblock content %}

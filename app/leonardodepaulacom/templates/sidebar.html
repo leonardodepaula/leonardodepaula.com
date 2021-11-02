@@ -13,15 +13,23 @@
       <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
         <li class="nav-item">
-          <a href="#" class="nav-link">
-            <i class="nav-icon far fa-newspaper mr-2"></i>
+          {% if request.path == '/' %}
+          <a href="{% url 'core:index' %}" class="nav-link active">
+          {% else %}
+          <a href="{% url 'core:index' %}" class="nav-link">
+          {% endif %}
+            <i class="nav-icon fas fa-home mr-2"></i>
             <p class="h5">
-              Artigos
+              Home
             </p>
           </a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link">
+          {% if request.path == '/biography/' %}
+          <a href="{% url 'core:biography' %}" class="nav-link active">
+          {% else %}
+          <a href="{% url 'core:biography' %}" class="nav-link">
+          {% endif %}
             <i class="nav-icon fas fa-user mr-2"></i>
             <p class="h5">
               Biografia

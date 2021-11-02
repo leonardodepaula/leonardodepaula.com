@@ -130,6 +130,7 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'assets'),)
 # Outras configurações
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+AUTH_USER_MODEL = 'core.User'
 
 # Informações da aplicação
 ENGINE_DB = DATABASES.get('default').get('ENGINE')
